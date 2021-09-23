@@ -53,13 +53,13 @@ const signup = async (req, res, next) => {
 };
 
 const getUser = async (req, res) => {
-  const authBarear = req.headers.authorization;
-
-  const accessToken = authBarear.split(" ")[1];
-
+  const authBarear = req.headers["authorization"];
+  // get token
+  const accessToken = authBarear && authBarear.split(" ")[1];
+ 
   try {
     // access token verification
-    const verifiedToken = verifyToken(accessToken);
+    const verifiedToken = verifyToken(accessToken); 
     if (!verifiedToken) {
       return res
         .status(400)
@@ -70,9 +70,23 @@ const getUser = async (req, res) => {
     const user = await User.findOne({ _id: verifiedToken });
 
     return res.status(200).json(user);
-  } catch (err) {
+  } catch (err) { 
     return res.status(400).json({ errorMessage: err.message });
   }
 };
 
-module.exports = { login, signup, getUser };
+const incOrDescCoin = async (req,res) => {
+  const { coinValue,id } = req.body;
+
+  try {
+    // get user
+    const user = await User.findByIdAndUpdate(id,{coins:coinValue},{new:true});
+
+    // save updated coins of user
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(400).json({errorMessage:err.message})
+  }
+}
+
+module.exports = { login, signup, getUser, incOrDescCoin };

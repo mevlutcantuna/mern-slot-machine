@@ -1,20 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/signup.scss";
 import { Spin } from "antd";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { router } from "../routers/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../store/actions/auth";
 
-import {errorMessage} from "../utils/notifications";
+import { AUTH } from "../store/constants/auth";
+
+import { errorMessage } from "../utils/notifications";
+import { isLogin } from "../utils/isLogin";
 
 const Signup = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const loading = useSelector((state) => state.auth.loading);
+  const user = useSelector((state) => state.auth.user);
 
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    isLogin() && history.push("/");
+    dispatch({type:AUTH.RESET})
+    user && history.push("/login");
+
+  }, [history,dispatch,user]);
 
   const handleChangeFullName = (e) => {
     setFullName(e.target.value);
@@ -32,21 +45,26 @@ const Signup = () => {
     e.preventDefault();
 
     // check inputs are not empty
-    if(fullName.trim() === "" || email.trim() === "" || password.trim() === ""){
+    if (
+      fullName.trim() === "" ||
+      email.trim() === "" ||
+      password.trim() === ""
+    ) {
       return errorMessage("Inputs must not be Empty...");
     }
 
-    // check characters of password is at least 6 
+    // check characters of password is at least 6
     const characterOfPassword = password.split("").length;
-    if(characterOfPassword < 6) {
-      return errorMessage("Password must include at least 6 characters")
+    if (characterOfPassword < 6) {
+      return errorMessage("Password must include at least 6 characters");
     }
-    
-    dispatch(signup({fullName,email,password}))
-  }
+
+    dispatch(signup({ fullName, email, password }));
+
+  };
 
   return (
-    <Spin tip="waiting for signing up" spinning={false}>
+    <Spin tip="waiting for signing up" spinning={loading}>
       <div className="signup">
         <div className="signup__title">Sign Up</div>
         <div className="signup__is-member">
@@ -54,7 +72,10 @@ const Signup = () => {
           <Link to={router.login.path}>Log In</Link>
         </div>
         <div className="signup__form">
-          <form onSubmit={submitSignupForm} style={{ display: "flex", flexDirection: "column" }}>
+          <form
+            onSubmit={submitSignupForm}
+            style={{ display: "flex", flexDirection: "column" }}
+          >
             <label className="signup__form__label">Full Name</label>
             <input
               value={fullName}
