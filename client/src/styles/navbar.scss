@@ -24,6 +24,15 @@
             letter-spacing: .5px;
         }
 
+        &__coins{
+            background-color: #617dbb;
+            border-radius: 0.5rem;
+            padding: 5px;
+            font-size: 1.25rem !important;
+            font-family: 'Bebas Neue', cursive;
+
+        }
+
         &__logout{
             font-size: larger;
             font-family: 'Bebas Neue', cursive;

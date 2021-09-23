@@ -10,7 +10,7 @@ import { signup } from "../store/actions/auth";
 import { AUTH } from "../store/constants/auth";
 
 import { errorMessage } from "../utils/notifications";
-import { isLogin } from "../utils/isLogin";
+import { isLogin } from "../utils/conditions";
 
 const Signup = () => {
   const [fullName, setFullName] = useState("");

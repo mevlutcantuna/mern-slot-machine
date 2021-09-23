@@ -16,7 +16,7 @@ export const signup = (signupForm) => async (dispatch) => {
       payload: err.response.data.errorMessage,
     });
     return errorMessage(err.response.data.errorMessage);
-  }
+  } 
 };
 
 export const login = (loginForm) => async (dispatch) => {
@@ -52,3 +52,18 @@ export const getUser = () => async (dispatch) => {
     errorMessage(err.response.data.errorMessage);
   }
 };
+
+export const incOrDescCoin = (coinValue,id) => async (dispatch) => {
+    dispatch({type:AUTH.UPDATE_COIN_LOADING})
+
+    try{
+        const response = await instance.patch("/auth/inc-desc-coin",{coinValue,id});
+        dispatch({type:AUTH.UPDATE_COIN_SUCCESS,payload:response.data})
+        localStorage.setItem("isStarted",JSON.stringify(true));
+ 
+    }catch(err){
+      dispatch({type:AUTH.UPDATE_COIN_ERROR,payload:err.response.data.errorMessage});
+      errorMessage(err.response.data.errorMessage)
+    }
+
+}

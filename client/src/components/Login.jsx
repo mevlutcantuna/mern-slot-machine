@@ -6,7 +6,7 @@ import { router } from "../routers/router";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../store/actions/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { isLogin } from "../utils/isLogin";
+import { isLogin } from "../utils/conditions";
 
 const Login = () => {
   const [email,setEmail] = useState("");

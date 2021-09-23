@@ -6,6 +6,6 @@ const router = express.Router();
 router.post("/api/auth/login",login);
 router.post("/api/auth/signup",signup);
 router.get("/api/auth/get-user",getUser)
-router.post("/api/auth/inc-desc-coin",incOrDescCoin)       
+router.patch("/api/auth/inc-desc-coin",incOrDescCoin)       
 
 module.exports = router 

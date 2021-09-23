@@ -21,6 +21,7 @@ const Navbar = () => {
       <span className="navbar__title">Slot Machine</span>
       <div className="navbar__right">
         <span>{user?.fullName}</span>
+        <span className="navbar__right__coins" >{user?.coins} Coins</span>
         <button onClick={clickLogout} className="navbar__right__logout">
           <img src={LogoutLogo} alt="logout-logo" />
           <span>Logout</span>

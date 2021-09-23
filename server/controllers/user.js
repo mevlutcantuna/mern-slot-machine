@@ -79,11 +79,16 @@ const incOrDescCoin = async (req,res) => {
   const { coinValue,id } = req.body;
 
   try {
-    // get user
-    const user = await User.findByIdAndUpdate(id,{coins:coinValue},{new:true});
+    
+    if(coinValue < 0){
+      return res.status(400).json({errorMessage:"You Need More Coins..."})
+    }
+
+    // update user
+    const updatedUser = await User.findByIdAndUpdate(id,{coins:coinValue},{new:true});
 
     // save updated coins of user
-    return res.status(200).json(user);
+    return res.status(200).json(updatedUser);
   } catch (error) {
     return res.status(400).json({errorMessage:err.message})
   }
