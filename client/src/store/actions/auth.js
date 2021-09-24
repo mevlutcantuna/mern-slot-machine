@@ -60,7 +60,7 @@ export const incOrDescCoin = (coinValue,id,successCoin,gameStart) => async (disp
         const response = await instance.patch("/auth/inc-desc-coin",{coinValue,id});
         dispatch({type:AUTH.UPDATE_COIN_SUCCESS,payload:response.data})
         sessionStorage.setItem("isStarted",JSON.stringify(true)); 
-        if(successCoin && !gameStart) successMessage(`You Win ${successCoin} Coins...`);
+        if(successCoin && !gameStart) return successMessage(`You Win ${successCoin} Coins...`);
     }catch(err){
       dispatch({type:AUTH.UPDATE_COIN_ERROR,payload:err.response.data.errorMessage});
       errorMessage(err.response.data.errorMessage)

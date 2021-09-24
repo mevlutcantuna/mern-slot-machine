@@ -47,11 +47,12 @@ const Game = () => {
         setTimeout(() => {
             setGameStart(false)
         },3000)
-        
-       
     }
 
     useEffect(() => {
+
+        //dispatch(getUser())
+
         // it shows chosen fruit
         if(gameStart){
             setSlotValue1({backgroundImage: `url(${Reel1})`,backgroundRepeat:"no-repeat",backgroundPosition:`0 -${90*s1}px`})
@@ -61,27 +62,28 @@ const Game = () => {
 
         // win or lose conditions
         if(slots1[s1] === "cherry" && slots2[s2] === "cherry" && slots3[s3] === "cherry"){
-            dispatch(incOrDescCoin(user?.coins+50,user?._id,50,gameStart))
+            !gameStart && dispatch(incOrDescCoin(user?.coins+50,user?._id,50,gameStart))
         }else if(slots1[s1] === "cherry" && slots2[s2] === "cherry" && slots3[s3] !== "cherry"){
-            dispatch(incOrDescCoin(user?.coins+40,user?._id,40,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+40,user?._id,40,gameStart))
         }else if(slots1[s1] !== "cherry" && slots2[s2] === "cherry" && slots3[s3] === "cherry"){
-            dispatch(incOrDescCoin(user?.coins+40,user?._id,40,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+40,user?._id,40,gameStart))
         }else if(slots1[s1] === "apple" && slots2[s2] === "apple" && slots3[s3] === "apple"){//
-            dispatch(incOrDescCoin(user?.coins+20,user?._id,20,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+20,user?._id,20,gameStart))
         }else if(slots1[s1] === "apple" && slots2[s2] === "apple" && slots3[s3] !== "cherry"){
-            dispatch(incOrDescCoin(user?.coins+10,user?._id,10,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+10,user?._id,10,gameStart))
         }else if(slots1[s1] !== "apple" && slots2[s2] === "apple" && slots3[s3] === "apple"){
-            dispatch(incOrDescCoin(user?.coins+10,user?._id,10,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+10,user?._id,10,gameStart))
         }else if(slots1[s1] === "banana" && slots2[s2] === "banana" && slots3[s3] === "banana"){//
-            dispatch(incOrDescCoin(user?.coins+15,user?._id,15,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+15,user?._id,15,gameStart))
         }else if(slots1[s1] === "banana" && slots2[s2] === "banana" && slots3[s3] !== "banana"){
-            dispatch(incOrDescCoin(user?.coins+5,user?._id,5,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+5,user?._id,5,gameStart))
         }else if(slots1[s1] !== "banana" && slots2[s2] === "banana" && slots3[s3] === "banana"){
-            dispatch(incOrDescCoin(user?.coins+5,user?._id,5,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+5,user?._id,5,gameStart))
         }else if(slots1[s1] === "lemon" && slots2[s2] === "lemon" && slots3[s3] === "lemon"){
-            dispatch(incOrDescCoin(user?.coins+5,user?._id,3,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+5,user?._id,3,gameStart))
         } 
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[gameStart,s1,s2,s3]);
 
     return (
