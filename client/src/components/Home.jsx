@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../store/actions/auth";
 
 import { isStarted } from "../utils/conditions";
+import Game from "./Game";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getUser());
+    // if user starts once, and page refleshs,user don't have to start again
     (isStarted() || isStartedStore) && setIsStartedState(true)
   }, [dispatch,isStartedStore]);
 
@@ -28,7 +30,7 @@ const Home = () => {
       <Spin spinning={loading}>
         <div className="home__main">
           {isStardtedState ? (
-            <div>dsada</div>
+            <Game/>
           ) : (
             <StartButton setIsStartedState={setIsStartedState} />
           )}

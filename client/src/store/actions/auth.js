@@ -53,17 +53,17 @@ export const getUser = () => async (dispatch) => {
   }
 };
 
-export const incOrDescCoin = (coinValue,id) => async (dispatch) => {
+export const incOrDescCoin = (coinValue,id,successCoin,gameStart) => async (dispatch) => {
     dispatch({type:AUTH.UPDATE_COIN_LOADING})
 
     try{
         const response = await instance.patch("/auth/inc-desc-coin",{coinValue,id});
         dispatch({type:AUTH.UPDATE_COIN_SUCCESS,payload:response.data})
-        localStorage.setItem("isStarted",JSON.stringify(true));
- 
+        sessionStorage.setItem("isStarted",JSON.stringify(true)); 
+        if(successCoin && !gameStart) successMessage(`You Win ${successCoin} Coins...`);
     }catch(err){
       dispatch({type:AUTH.UPDATE_COIN_ERROR,payload:err.response.data.errorMessage});
       errorMessage(err.response.data.errorMessage)
-    }
+    } 
 
 }

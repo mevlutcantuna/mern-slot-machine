@@ -6,9 +6,9 @@ export const isLogin = () => {
     return false;
 }
 
-export const isStarted = (value) => {
+export const isStarted = () => {
     
-    if(localStorage.getItem("isStarted")){
+    if(sessionStorage.getItem("isStarted")){
         return true
     }
     

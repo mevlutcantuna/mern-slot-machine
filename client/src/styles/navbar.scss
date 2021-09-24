@@ -19,9 +19,14 @@
         align-items: center;
 
         & span{
-            font-size: 1rem;
             margin-right: 1rem;
             letter-spacing: .5px;
+        font-family: 'Bebas Neue', cursive;
+        }
+
+        & span:nth-child(1){
+        font-size: 1.25rem;
+        letter-spacing: 1.25px;            
         }
 
         &__coins{
