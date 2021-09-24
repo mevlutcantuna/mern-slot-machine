@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/signup.scss";
+import "../styles/Signup.scss";
 import { Spin } from "antd";
 
 import { Link, useHistory } from "react-router-dom";

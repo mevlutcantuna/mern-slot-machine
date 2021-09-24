@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/navbar.scss";
+import "../styles/Navbar.scss";
 import LogoutLogo from "../assets/logout-white.svg";
 
 import { useDispatch, useSelector } from "react-redux";

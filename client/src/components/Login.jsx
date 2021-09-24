@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import "../styles/login.scss";
+import "../styles/Login.scss";
 import { Spin } from "antd";
 
 import { router } from "../routers/router";

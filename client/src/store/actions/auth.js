@@ -43,7 +43,7 @@ export const getUser = () => async (dispatch) => {
 
   try {
     // here used axios because of using barear token..
-    const response = await axios.get("http://localhost:5000/api/auth/get-user",{
+    const response = await axios.get("https://mern-slot-machine-backend.herokuapp.com/api/auth/get-user",{
       headers:{'Authorization': `Barear ${accessToken}`}
     });
     dispatch({ type: AUTH.GET_SUCCESS, payload: response.data });

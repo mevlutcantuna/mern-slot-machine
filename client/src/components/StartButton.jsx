@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/startButton.scss";
+import "../styles/StartButton.scss";
 
 import { getUser, incOrDescCoin } from "../store/actions/auth";
 import { useDispatch,useSelector } from 'react-redux';

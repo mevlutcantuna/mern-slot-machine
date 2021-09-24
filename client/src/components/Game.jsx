@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import "../styles/game.scss";
+import "../styles/Game.scss";
 
 import { useDispatch, useSelector } from 'react-redux';
 

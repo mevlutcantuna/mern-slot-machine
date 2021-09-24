@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/home.scss";
+import "../styles/Home.scss";
 import { Spin } from "antd";
 
 import Navbar from "./Navbar";

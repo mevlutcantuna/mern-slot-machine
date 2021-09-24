@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
 
-
     &__button{
         width: 20rem;
         height: 5rem;
@@ -16,8 +15,7 @@
         cursor: pointer;
         margin-bottom: 1rem;
         font-family: 'Bebas Neue', cursive;
-        letter-spacing: 2px;
-        
+
         &:hover{
             background-color: #193264;
         }
