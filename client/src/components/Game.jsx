@@ -80,7 +80,7 @@ const Game = () => {
         }else if(slots1[s1] !== "banana" && slots2[s2] === "banana" && slots3[s3] === "banana"){
             !gameStart &&  dispatch(incOrDescCoin(user?.coins+5,user?._id,5,gameStart))
         }else if(slots1[s1] === "lemon" && slots2[s2] === "lemon" && slots3[s3] === "lemon"){
-            !gameStart &&  dispatch(incOrDescCoin(user?.coins+5,user?._id,3,gameStart))
+            !gameStart &&  dispatch(incOrDescCoin(user?.coins+3,user?._id,3,gameStart))
         } 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
