@@ -6,7 +6,6 @@ import { Link, useHistory } from "react-router-dom";
 import { router } from "../routers/router";
 import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../store/actions/auth";
-
 import { AUTH } from "../store/constants/auth";
 
 import { errorMessage } from "../utils/notifications";
@@ -16,18 +15,19 @@ const Signup = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loading = useSelector((state) => state.auth.loading);
-  const user = useSelector((state) => state.auth.user);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const loading = useSelector((state) => state.auth.loading);
+  const user = useSelector((state) => state.auth.user);
+
   useEffect(() => {
     isLogin() && history.push("/");
-    dispatch({type:AUTH.RESET})
+    // when page start,reset user data
+    dispatch({ type: AUTH.RESET });
     user && history.push("/login");
-
-  }, [history,dispatch,user]);
+  }, [history, dispatch, user]);
 
   const handleChangeFullName = (e) => {
     setFullName(e.target.value);
@@ -60,7 +60,6 @@ const Signup = () => {
     }
 
     dispatch(signup({ fullName, email, password }));
-
   };
 
   return (

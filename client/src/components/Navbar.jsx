@@ -4,7 +4,7 @@ import LogoutLogo from "../assets/logout-white.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import { AUTH } from "../store/constants/auth";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
   const user = useSelector((state) => state.auth.user);
@@ -21,7 +21,7 @@ const Navbar = () => {
       <span className="navbar__title">Slot Machine</span>
       <div className="navbar__right">
         <span>{user?.fullName}</span>
-        <span className="navbar__right__coins" >{user?.coins} Coins</span>
+        <span className="navbar__right__coins">{user?.coins} Coins</span>
         <button onClick={clickLogout} className="navbar__right__logout">
           <img src={LogoutLogo} alt="logout-logo" />
           <span>Logout</span>

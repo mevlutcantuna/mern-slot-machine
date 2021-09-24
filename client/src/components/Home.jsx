@@ -4,33 +4,33 @@ import { Spin } from "antd";
 
 import Navbar from "./Navbar";
 import StartButton from "./StartButton";
+import Game from "./Game";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../store/actions/auth";
 
 import { isStarted } from "../utils/conditions";
-import Game from "./Game";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const [isStardtedState, setIsStartedState] = useState(false);
+  const [isStartedState, setIsStartedState] = useState(false);
 
   const loading = useSelector((state) => state.auth.loading);
   const isStartedStore = useSelector((state) => state.auth.isStarted);
 
   useEffect(() => {
     dispatch(getUser());
-    // if user starts once, and page refleshs,user don't have to start again
-    (isStarted() || isStartedStore) && setIsStartedState(true)
-  }, [dispatch,isStartedStore]);
+    // if user starts once, and page refresh,user don't have to start again
+    (isStarted() || isStartedStore) && setIsStartedState(true);
+  }, [dispatch, isStartedStore]);
 
   return (
     <div className="home">
       <Navbar />
       <Spin spinning={loading}>
         <div className="home__main">
-          {isStardtedState ? (
-            <Game/>
+          {isStartedState ? (
+            <Game />
           ) : (
             <StartButton setIsStartedState={setIsStartedState} />
           )}

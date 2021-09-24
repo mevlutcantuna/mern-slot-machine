@@ -8,7 +8,6 @@
     background-color: #10234b;
     box-shadow: 0 5px 20px 2px rgb(100, 100, 100);
 
-
     &__title{
         font-family: "Anton", sans-serif;
         color: white;
@@ -16,7 +15,6 @@
         padding-top: 1rem;
         font-size: 2.5rem;
     }
-
 
     &__slots{
         height: 12rem;
@@ -54,22 +52,19 @@
 }
 
 .slot1-active{
-    background: no-repeat url("../assets/reel1.png");
-    background-position:0 0;
+    background: url("../assets/reel1.png") no-repeat 0 0;
     animation:play 1s infinite;
     animation-timing-function: steps(24);
 }   
 
 .slot2-active{
-    background: no-repeat url("../assets/reel2.png");
-    background-position:0 0;
+    background: url("../assets/reel2.png") no-repeat 0 0;
     animation:play 1s infinite;
     animation-timing-function: steps(24);
 } 
 
 .slot3-active{
-    background: no-repeat url("../assets/reel3.png");
-    background-position:0 0;
+    background: url("../assets/reel3.png") no-repeat 0 0;
     animation:play 1s infinite;
     animation-timing-function: steps(24);
 }

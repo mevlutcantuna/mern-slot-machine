@@ -4,8 +4,8 @@ const initialState = {
   user: null,
   loading: false,
   error: "",
-  isLoggedIn:false,
-  isStarted:false
+  isLoggedIn: false,
+  isStarted: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -16,7 +16,7 @@ const authReducer = (state = initialState, action) => {
         user: action.payload,
         loading: false,
         error: "",
-        isLoggedIn:false
+        isLoggedIn: false,
       };
     case AUTH.SIGNUP_LOADING:
       return {
@@ -24,7 +24,7 @@ const authReducer = (state = initialState, action) => {
         user: null,
         loading: true,
         error: "",
-        isLoggedIn:false
+        isLoggedIn: false,
       };
     case AUTH.SIGNUP_ERROR:
       return {
@@ -32,7 +32,7 @@ const authReducer = (state = initialState, action) => {
         user: null,
         loading: false,
         error: action.payload,
-        isLoggedIn:false
+        isLoggedIn: false,
       };
     case AUTH.LOGIN_SUCCESS:
       return {
@@ -40,7 +40,7 @@ const authReducer = (state = initialState, action) => {
         user: action.payload,
         loading: false,
         error: "",
-        isLoggedIn:true
+        isLoggedIn: true,
       };
     case AUTH.LOGIN_LOADING:
       return {
@@ -48,7 +48,7 @@ const authReducer = (state = initialState, action) => {
         user: null,
         loading: true,
         error: "",
-        isLoggedIn:false
+        isLoggedIn: false,
       };
     case AUTH.LOGIN_ERROR:
       return {
@@ -56,16 +56,17 @@ const authReducer = (state = initialState, action) => {
         user: null,
         loading: false,
         error: action.payload,
-        isLoggedIn:false
+        isLoggedIn: false,
       };
     case AUTH.LOGOUT_SUCCESS:
       localStorage.removeItem("accessToken");
+      sessionStorage.removeItem("isStarted");
       return {
         ...state,
         user: action.payload,
         loading: false,
         error: "",
-        isLoggedIn:false
+        isLoggedIn: false,
       };
     case AUTH.GET_SUCCESS:
       return {
@@ -73,46 +74,46 @@ const authReducer = (state = initialState, action) => {
         user: action.payload,
         loading: false,
         error: "",
-        isLoggedIn:true
+        isLoggedIn: true,
       };
-     case AUTH.GET_LOADING:
-       return {
-         ...state,
-         loading:true,
-         error:null,
-         isLoggedIn:false
-       } 
+    case AUTH.GET_LOADING:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+        isLoggedIn: false,
+      };
     case AUTH.GET_ERROR:
       return {
         ...state,
         user: null,
         loading: false,
         error: action.payload,
-        isLoggedIn:false
+        isLoggedIn: false,
       };
-      case AUTH.UPDATE_COIN_SUCCESS:
+    case AUTH.UPDATE_COIN_SUCCESS:
       return {
         ...state,
-        user: {...state.user,coins:action.payload.coins},
+        user: { ...state.user, coins: action.payload.coins },
         loading: false,
         error: "",
-        isLoggedIn:true,
-        isStarted:true
+        isLoggedIn: true,
+        isStarted: true,
       };
-     case AUTH.UPDATE_COIN_LOADING:
-       return {
-         ...state,
-         loading:true,
-         error:null,
-         isLoggedIn:false
-       } 
+    case AUTH.UPDATE_COIN_LOADING:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+        isLoggedIn: false,
+      };
     case AUTH.UPDATE_COIN_ERROR:
       return {
         ...state,
         user: null,
         loading: false,
         error: action.payload,
-        isStarted:false
+        isStarted: false,
       };
     case AUTH.RESET:
       return {
@@ -120,7 +121,7 @@ const authReducer = (state = initialState, action) => {
         user: null,
         loading: false,
         error: "",
-        isLoggedIn:false
+        isLoggedIn: false,
       };
     default:
       return {

@@ -16,7 +16,7 @@ export const signup = (signupForm) => async (dispatch) => {
       payload: err.response.data.errorMessage,
     });
     return errorMessage(err.response.data.errorMessage);
-  } 
+  }
 };
 
 export const login = (loginForm) => async (dispatch) => {
@@ -39,13 +39,16 @@ export const login = (loginForm) => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
   // get token from local storage
   const accessToken = localStorage.getItem("accessToken");
-  dispatch({type:AUTH.GET_LOADING})
+  dispatch({ type: AUTH.GET_LOADING });
 
   try {
-    // here used axios because of using barear token..
-    const response = await axios.get("https://mern-slot-machine-backend.herokuapp.com/api/auth/get-user",{
-      headers:{'Authorization': `Barear ${accessToken}`}
-    });
+    // here used axios because of using bearer token..
+    const response = await axios.get(
+      "https://mern-slot-machine-backend.herokuapp.com/api/auth/get-user",
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
     dispatch({ type: AUTH.GET_SUCCESS, payload: response.data });
   } catch (err) {
     dispatch({ type: AUTH.GET_ERROR, payload: err.response.data.errorMessage });
@@ -53,17 +56,24 @@ export const getUser = () => async (dispatch) => {
   }
 };
 
-export const incOrDescCoin = (coinValue,id,successCoin,gameStart) => async (dispatch) => {
-    dispatch({type:AUTH.UPDATE_COIN_LOADING})
+export const incOrDescCoin =
+  (coinValue, id, successCoin, gameStart) => async (dispatch) => {
+    dispatch({ type: AUTH.UPDATE_COIN_LOADING });
 
-    try{
-        const response = await instance.patch("/auth/inc-desc-coin",{coinValue,id});
-        dispatch({type:AUTH.UPDATE_COIN_SUCCESS,payload:response.data})
-        sessionStorage.setItem("isStarted",JSON.stringify(true)); 
-        if(successCoin && !gameStart) return successMessage(`You Win ${successCoin} Coins...`);
-    }catch(err){
-      dispatch({type:AUTH.UPDATE_COIN_ERROR,payload:err.response.data.errorMessage});
-      errorMessage(err.response.data.errorMessage)
-    } 
-
-}
+    try {
+      const response = await instance.patch("/auth/inc-desc-coin", {
+        coinValue,
+        id,
+      });
+      dispatch({ type: AUTH.UPDATE_COIN_SUCCESS, payload: response.data });
+      sessionStorage.setItem("isStarted", JSON.stringify(true));
+      if (successCoin && !gameStart)
+        return successMessage(`You Win ${successCoin} Coins...`);
+    } catch (err) {
+      dispatch({
+        type: AUTH.UPDATE_COIN_ERROR,
+        payload: err.response.data.errorMessage,
+      });
+      errorMessage(err.response.data.errorMessage);
+    }
+  };
