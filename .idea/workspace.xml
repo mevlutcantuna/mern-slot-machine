@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d9cf250-cbbb-4846-92de-5afecd7b9aa1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Game.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Game.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/PrivateRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PrivateRoute.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Signup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/StartButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/StartButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/routers/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routers/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/reducers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/reducers/rootReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/Game.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/Game.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/Home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/conditions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/conditions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/notifications.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/notifications.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/slots.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/slots.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +45,8 @@
       <option name="presentableId" value="Default" />
       <updated>1632501558446</updated>
       <workItem from="1632501561074" duration="783000" />
-      <workItem from="1632507668261" duration="914000" />
+      <workItem from="1632507668261" duration="974000" />
+      <workItem from="1632574162396" duration="543000" />
     </task>
     <servers />
   </component>

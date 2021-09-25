@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(getUser());
     // if user starts once, and page refresh,user don't have to start again
-    (isStarted() || isStartedStore) && setIsStartedState(true);
+    isStarted() && isStartedStore && setIsStartedState(true);
   }, [dispatch, isStartedStore]);
 
   return (
