@@ -15,11 +15,21 @@ To setup the project, run the following on your terminal in the order:
 For Client:
 ```
     cd client
+```    
+```
+    npm install
+``` 
+```
     npm start
 ```
 
 For Server:
 ```
-    cd server
-    node index
+    cd client
+```    
+```
+    npm install
+``` 
+```
+    npm start
 ```
