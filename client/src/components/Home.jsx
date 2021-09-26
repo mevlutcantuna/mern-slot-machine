@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../styles/Home.scss";
 import { Spin } from "antd";
 
@@ -13,15 +13,12 @@ import { isStarted } from "../utils/conditions";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const [isStartedState, setIsStartedState] = useState(false);
 
   const loading = useSelector((state) => state.auth.loading);
   const isStartedStore = useSelector((state) => state.auth.isStarted);
 
   useEffect(() => {
     dispatch(getUser());
-    // if user starts once, and page refresh,user don't have to start again
-    isStarted() && isStartedStore && setIsStartedState(true);
   }, [dispatch, isStartedStore]);
 
   return (
@@ -29,10 +26,10 @@ const Home = () => {
       <Navbar />
       <Spin spinning={loading}>
         <div className="home__main">
-          {isStartedState ? (
+          {isStarted() ? (
             <Game />
           ) : (
-            <StartButton setIsStartedState={setIsStartedState} />
+            <StartButton />
           )}
         </div>
       </Spin>
