@@ -5,7 +5,6 @@ const initialState = {
   loading: false,
   error: "",
   isLoggedIn: false,
-  isStarted: false,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -59,8 +58,7 @@ const authReducer = (state = initialState, action) => {
         isLoggedIn: false,
       };
     case AUTH.LOGOUT_SUCCESS:
-      localStorage.removeItem("accessToken");
-      sessionStorage.removeItem("isStarted");
+      sessionStorage.removeItem("accessToken");
       return {
         ...state,
         user: action.payload,
@@ -98,7 +96,6 @@ const authReducer = (state = initialState, action) => {
         loading: false,
         error: "",
         isLoggedIn: true,
-        isStarted: true,
       };
     case AUTH.UPDATE_COIN_LOADING:
       return {

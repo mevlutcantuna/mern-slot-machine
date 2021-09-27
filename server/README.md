@@ -5,22 +5,22 @@ Backend Deploy: https://mern-slot-machine-backend.herokuapp.com/
 
 [ GET ] Get User with Bearer Token:
 ```
-    https://mern-slot-machine-backend.herokuapp.com/api/auth/get-user
+    http://localhost:5000/api/auth/get-user
 ```
 
 [ POST ] Signup:
 ```
-    https://mern-slot-machine-backend.herokuapp.com/api/auth/signup
+    http://localhost:5000/api/auth/signup
 ```
 
-[POST] Login: it returns token
+[ POST ] Login: it returns token
 ```
-    https://mern-slot-machine-backend.herokuapp.com/api/auth/login
+    http://localhost:5000/api/auth/login
 ```
 
 [ PATCH ] Update User Coins:
 ```
-    https://mern-slot-machine-backend.herokuapp.com/api/
+    http://localhost:5000/api/
 ```
 
 ### Technologies

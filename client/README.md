@@ -1,7 +1,5 @@
 ## SLOT MACHINE GAME FRONTEND
 
-Frontend Deploy: https://slot-machine-mct.netlify.app/
-
 ###  Technologies
 - React
 - Redux

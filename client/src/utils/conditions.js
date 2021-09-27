@@ -1,12 +1,5 @@
 export const isLogin = () => {
-  if (localStorage.getItem("accessToken")) {
-    return true;
-  }
-  return false;
-};
-
-export const isStarted = () => {
-  if (sessionStorage.getItem("isStarted")) {
+  if (sessionStorage.getItem("accessToken")) {
     return true;
   }
   return false;

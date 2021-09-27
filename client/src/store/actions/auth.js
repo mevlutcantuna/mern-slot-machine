@@ -5,10 +5,13 @@ import axios from "axios";
 
 export const signup = (signupForm) => async (dispatch) => {
   dispatch({ type: AUTH.SIGNUP_LOADING });
+  console.log(signupForm)
 
   try {
     const response = await instance.post("/auth/signup", signupForm);
-    dispatch({ type: AUTH.SIGNUP_SUCCESS, payload: response.data });
+    console.log(response);
+    dispatch({ type: AUTH.SIGNUP_SUCCESS, payload: response?.data });
+    console.log(response)
     return successMessage("Signed Up Successfully...");
   } catch (err) {
     dispatch({
@@ -25,7 +28,7 @@ export const login = (loginForm) => async (dispatch) => {
   try {
     const response = await instance.post("/auth/login", loginForm);
     dispatch({ type: AUTH.LOGIN_SUCCESS, payload: response.data.user });
-    localStorage.setItem("accessToken", response.data.user.accessToken);
+    sessionStorage.setItem("accessToken", response.data.user.accessToken);
     return successMessage("Logged In Succefully...");
   } catch (err) {
     dispatch({
@@ -38,13 +41,13 @@ export const login = (loginForm) => async (dispatch) => {
 
 export const getUser = () => async (dispatch) => {
   // get token from local storage
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = sessionStorage.getItem("accessToken");
   dispatch({ type: AUTH.GET_LOADING });
 
   try {
     // here used axios because of using bearer token..
     const response = await axios.get(
-      "https://mern-slot-machine-backend.herokuapp.com/api/auth/get-user",
+      "http://localhost:5000/api/auth/get-user",
       {
         headers: { Authorization: `Bearer ${accessToken}` },
       }
