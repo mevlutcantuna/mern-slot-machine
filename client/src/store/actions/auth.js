@@ -47,7 +47,7 @@ export const getUser = () => async (dispatch) => {
   try {
     // here used axios because of using bearer token..
     const response = await axios.get(
-      "http://localhost:5000/api/auth/get-user",
+      "https://slot-machine-mct-backend.herokuapp.com/api/auth/get-user",
       {
         headers: { Authorization: `Bearer ${accessToken}` },
       }
