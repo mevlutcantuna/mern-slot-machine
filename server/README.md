@@ -1,5 +1,6 @@
 ## Slot Machine Game Backend
 
+Backend Deploy: https://slot-machine-mct-backend.herokuapp.com/
 
 [ GET ] Get User with Bearer Token:
 ```
