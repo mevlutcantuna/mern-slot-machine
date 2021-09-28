@@ -5,7 +5,6 @@ import axios from "axios";
 
 export const signup = (signupForm) => async (dispatch) => {
   dispatch({ type: AUTH.SIGNUP_LOADING });
-  console.log(signupForm)
 
   try {
     const response = await instance.post("/auth/signup", signupForm);
