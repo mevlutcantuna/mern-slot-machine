@@ -42,7 +42,7 @@ export const getUser = () => async (dispatch) => {
   // get token from local storage
   const accessToken = sessionStorage.getItem("accessToken");
   dispatch({ type: AUTH.GET_LOADING });
-  const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8080/': 'https://slot-machine-mct-backend.herokuapp.com/'
+  const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8080/': 'https://mern-slot-machine.vercel.app/'
   try {
     // here used axios because of using bearer token..
     const response = await axios.get(
