@@ -1,7 +1,9 @@
 ## SLOT MACHINE GAME FRONTEND
 
-Frontend Deploy: https://slot-machine-mct.netlify.app/
-###  Technologies
+Frontend Deploy: https://mern-slot-machine-frontend.vercel.app/
+
+### Technologies
+
 - React
 - Redux
 - Hooks

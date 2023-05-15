@@ -5,25 +5,25 @@ Backend Deploy: https://mern-slot-machine.vercel.app/
 [ GET ] Get User with Bearer Token:
 
 ```
-    http://localhost:5000/api/auth/get-user
+    http://localhost:8080/api/auth/get-user
 ```
 
 [ POST ] Signup:
 
 ```
-    http://localhost:5000/api/auth/signup
+    http://localhost:8080/api/auth/signup
 ```
 
 [ POST ] Login: it returns token
 
 ```
-    http://localhost:5000/api/auth/login
+    http://localhost:8080/api/auth/login
 ```
 
 [ PATCH ] Update User Coins:
 
 ```
-    http://localhost:5000/api/
+    http://localhost:8080/api/
 ```
 
 ### Technologies
