@@ -15,9 +15,9 @@ export const signup = (signupForm) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: AUTH.SIGNUP_ERROR,
-      payload: err.response.data.errorMessage,
+      payload: err.response?.data?.errorMessage,
     });
-    return errorMessage(err.response.data.errorMessage);
+    return errorMessage(err.response?.data.errorMessage);
   }
 };
 
@@ -32,9 +32,9 @@ export const login = (loginForm) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: AUTH.LOGIN_ERROR,
-      payload: err.response.data.errorMessage,
+      payload: err.response?.data?.errorMessage,
     });
-    return errorMessage(err.response.data.errorMessage);
+    return errorMessage(err.response?.data?.errorMessage);
   }
 };
 
@@ -42,11 +42,11 @@ export const getUser = () => async (dispatch) => {
   // get token from local storage
   const accessToken = sessionStorage.getItem("accessToken");
   dispatch({ type: AUTH.GET_LOADING });
-
+  const url = process.env.NODE_ENV === 'development' ? 'http://localhost:8080/': 'https://slot-machine-mct-backend.herokuapp.com/'
   try {
     // here used axios because of using bearer token..
     const response = await axios.get(
-      "https://slot-machine-mct-backend.herokuapp.com/api/auth/get-user",
+      url + "api/auth/get-user",
       {
         headers: { Authorization: `Bearer ${accessToken}` },
       }

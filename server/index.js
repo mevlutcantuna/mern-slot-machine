@@ -17,6 +17,7 @@ app.get("/",(req,res) => {
 
 app.use(userRouter);
 
+mongoose.set("strictQuery", false);
 
 mongoose.connect(process.env.CONNECT_DB,{
   useNewUrlParser: true,
